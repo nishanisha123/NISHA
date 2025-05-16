@@ -1,0 +1,812 @@
+/* src/styles/Dashboard.css original */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent unwanted scrollbars */
+}
+
+/* Main Dashboard Container */
+.dashboard-container {
+  display: flex; /* Flex layout for side-by-side sections */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background: #f4f6f9; /* Light background */
+  overflow: hidden; /* Prevent page overflow */
+  display: flex;
+  min-height: 100vh;
+  background: #f9f9f9;
+}
+
+/* Employee Profile (Left Sidebar) */
+.employee-profile {
+  padding: 10px;
+  background: #2c3e50; /* Dark sidebar */
+  color: white;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: flex-start; /* Align content to the top */
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  
+}
+
+.profile-picture {
+  border-radius: 50%;
+  margin-top: 200px;
+  margin-bottom: 10px;
+  transform: translateX(-40px); /* Move left by 20px */
+}
+
+
+
+/* Task Section (Right Content Area) */
+.task-section {
+  flex: 1; /* Takes remaining space */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  padding: 2rem;
+  background: #ffffff; /* White background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enables internal scrolling */
+  padding: 40px;
+  overflow-y: auto; /* Enable scroll for entire section if content is large */
+}
+
+/* Buttons (Add Task, Logout) */
+.add-task-button, .logout-button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: #2196F3; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-task-button:hover, .logout-button:hover {
+  background: #1976D2; /* Darker blue */
+}
+
+/* Task Form Input and Textarea */
+.task-form input, .task-form textarea {
+  display: block; /* Ensures block-level display */
+  margin: 1rem 0; /* Spacing between inputs */
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Task List */
+.task-list {
+  margin-top: 2rem;
+  max-height: 400px; /* Limit task list height */
+  overflow-y: auto; /* Enable scrolling */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adds spacing between tasks */
+  max-height: 500px; /* Limit the height */
+  overflow-y: auto; /* Add vertical scroll */
+  margin-top: 20px;
+  padding-right: 10px; /* Ensure scrollbar doesn't overlap content */
+}
+
+/* Individual Task Item */
+.task-item {
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #90caf9; /* Light blue */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  gap: 10px; /* Adds spacing between elements */
+
+}
+
+/* Task Item Headers */
+
+
+/* Task Item Text */
+.task-item p {
+  margin: 0.5rem 0;
+  color: #1a237e; /* Deep blue */
+  color: #7f8c8d;
+}
+
+/* Calendar Date Highlights */
+.highlight {
+  background-color: #4caf50;
+  color: white;
+  border-radius: 50%;
+}
+
+.react-calendar .highlight {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+}
+
+/* Calendar Scrollable Container */
+.react-calendar__tile {
+  position: relative;
+}
+
+/* Calendar Active Date Fix */
+.react-calendar__tile--active {
+  background: transparent !important;
+}
+
+/* Highlight Start and End Dates */
+.start-date-highlight {
+  background-color: #2196F3 !important; /* Blue */
+  color: white !important;
+  border-radius: 50%;
+}
+
+.end-date-highlight {
+  background-color: #F44336 !important; /* Red */
+  color: white !important;
+  border-radius: 50%;
+}
+
+/* Improved Label Visibility */
+.task-form label {
+  color: black; /* Ensure labels are visible */
+  font-weight: bold; /* Enhance label readability */
+  margin-top: 0.5rem; /* Better spacing */
+  display: block; /* Ensure block-level display */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .employee-profile {
+      width: 30%; /* Adjust sidebar width */
+  }
+
+  .task-section {
+      padding: 1.5rem; /* Less padding */
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+      flex-direction: column; /* Stack sections vertically */
+  }
+
+  .employee-profile {
+      width: 100%; /* Full width */
+      box-shadow: none; /* Remove side shadow */
+  }
+
+  .task-section {
+      flex: 1; /* Full height */
+  }
+}
+
+@media (max-width: 480px) {
+  .task-form input, .task-form textarea {
+      padding: 0.4rem; /* Smaller padding */
+  }
+
+  .add-task-button, .logout-button {
+      padding: 0.6rem 1rem; /* Smaller buttons */
+  }
+}
+
+/* Employee Dashboard Title */
+.dashboard-title {
+  font-size: 2rem; /* Large font size */
+  color: black; /* Black color */
+  text-align: center; /* Centered heading */
+  margin-bottom: 1.5rem; /* Space below the title */
+}
+
+
+
+
+
+/* Dashboard Container Styling */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f9f9f9;
+}
+
+/* Sidebar (Profile Section) */
+
+
+.logout-button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.logout-button:hover {
+  background: #c0392b;
+}
+
+/* Main Task Section */
+
+
+.dashboard-title {
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+/* Add Task Form */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-form input,
+.task-form select,
+.task-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Task List Section */
+
+
+
+.task-item h3 {
+  margin: 0;
+  color: #0d47a1; /* Dark blue */
+  font-size: 1.5rem; /* Increased font size */
+  font-weight: bold; /* Make it bold for better visibility */
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+
+/* Buttons */
+.add-task-toggle {
+  padding: 10px 20px;
+  margin: 20px 0;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-task-toggle:hover {
+  background: #2980b9;
+}
+
+.add-task-button,
+.cancel-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-task-button {
+  background: #2ecc71;
+  color: white;
+}
+
+.cancel-button {
+  background: #e74c3c;
+  color: white;
+}
+
+.add-task-button:hover {
+  background: #27ae60;
+}
+
+.cancel-button:hover {
+  background: #c0392b;
+}
+
+.profile-picture {
+  margin-left: 70px; /* Adjust left alignment */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .employee-profile {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+.task-details {
+  flex: 1;
+}
+
+.task-chart {
+  width: 120px;
+  height: 120px;
+}
+
+
+.task-item h3 {
+  margin-bottom: 8px;
+}
+
+
+.task-chart {
+  margin: 10px 0;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 8px;
+}
+
+
+.task-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+  row-gap: 8px;
+  font-size: 14px;
+}
+
+.task-details p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.task-chart {
+  margin-top: 10px;
+}
+
+.task-slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.task-slider-container label {
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 60%; /* Reduce slider width */
+  margin-top: 5px;
+}
+
+/* Dark Mode */
+.dashboard-container.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+.dashboard-container.dark .employee-profile {
+  background: #1e1e1e;
+}
+
+.dashboard-container.dark .task-section {
+  background: #1e1e1e;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+  background-color: #0056b3;
+}
+
+.dashboard-container.light-mode .adjust-completion {
+  color: #000 !important; /* Force black text */
+}
+
+.dashboard-container.light .task-slider-container label {
+  color: rgb(6, 65, 82);
+}
+
+.dashboard-container.light button {
+  background-color: #90caf9; /* Light Blue */
+  color: #0d47a1; /* Dark Blue Text for Contrast */
+}
+
+/* Hover Effect for Better UI */
+.dashboard-container.light button:hover {
+  background-color: #64b5f6; /* Slightly Darker Blue on Hover */
+}
+
+.employee-profile h2 {
+  color: #007bff; /* Bright Blue for better visibility */
+  font-size: 2rem; /* Larger font size */
+  font-weight: bold; /* Make it stand out */
+  margin-bottom: 10px;
+}
+
+/* Dark Mode Styling for Contrast */
+.dashboard-container.dark .employee-profile h2 {
+  color: #4caf50; /* Green for better visibility in dark mode */
+}
+
+
+/* Start Date in Red */
+.start-date-highlight {
+  background-color: #e74c3c !important; /* Red */
+  color: white !important;
+  border-radius: 50%;
+}
+
+/* End Date in Green */
+.end-date-highlight {
+  background-color: #4CAF50 !important; /* Green */
+  color: white !important;
+  border-radius: 50%;
+}
+
+/* Fix for Active Date Styling */
+.react-calendar__tile--active {
+  background: none !important; /* Remove unwanted active background */
+}
+
+
+.settings-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.settings-dropdown {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.theme-toggle-button, .logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.theme-toggle-button:hover, .logout-button:hover {
+  background-color: #e04343;
+}
+
+.settings-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+/* Upload Label Styling */
+.upload-label {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.upload-input {
+  display: none; /* Hide actual input */
+}
+
+/* Upload Button */
+.upload-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.upload-button:hover {
+  background-color: #218838;
+}
+
+/* Other Button Styles */
+.theme-toggle-button, .logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.theme-toggle-button:hover, .logout-button:hover {
+  background-color: #e04343;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--header-bg, #f0f0f0); /* Light mode default */
+  position: relative;
+}
+
+.settings-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Position the dropdown below the button */
+.settings-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+/* Style the theme and logout buttons */
+.theme-toggle-button, .logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.theme-toggle-button:hover, .logout-button:hover {
+  background-color: #e04343;
+}
+
+/* Adjust for dark mode */
+.dashboard-container.dark .dashboard-header {
+  background-color: #333;
+  color: #fff;
+}
+
+.dashboard-container.dark .settings-dropdown {
+  background-color: #444;
+  border-color: #555;
+}
+
+
+/* Container for settings button at top right */
+.top-right-settings {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10; /* Ensures it stays above other content */
+}
+
+/* Style the settings button */
+.settings-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.settings-button:hover {
+  background-color: #0056b3;
+}
+
+/* Dropdown Styles */
+.settings-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  width: 200px;
+  border-radius: 8px;
+  z-index: 20;
+}
+
+.settings-dropdown button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.settings-dropdown button:hover {
+  background-color: #218838;
+}
+
+/* Upload input style */
+.upload-label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.upload-input {
+  display: none;
+}
+
+.top-right-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Task count left, Settings button right */
+  margin: 20px;
+}
+
+.task-count {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.settings-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.settings-button:hover {
+  background-color: #0056b3;
+}
+
+.video-call-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: yellowgreen;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 999;
+  width: 420px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.video-call-modal h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.video-call-modal ul {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: pink;
+}
+
+.video-call-modal li {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  color:grey; /* 👈 Set to black for visibility */
+  transition: background-color 0.2s ease;
+}
+
+.video-call-modal li:hover {
+  background-color:black;
+}
+
+.video-call-modal li:last-child {
+  border-bottom: none;
+}
+
+.video-call-modal button {
+  margin-right: 10px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.video-call-modal button:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+.video-call-modal button:last-child {
+  background-color: #dc3545;
+}
+
+.video-call-modal button:last-child:hover {
+  background-color: #c82333;
+}
+
+
+
